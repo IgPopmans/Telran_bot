@@ -2,6 +2,7 @@ package com.telran.telran_bot.controller;
 
 import com.telran.telran_bot.model.Channel;
 import com.telran.telran_bot.service.ChannelService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ public class ChannelController {
 
     private final ChannelService channelService;
 
+    @Autowired
     public ChannelController(ChannelService channelService) {
         this.channelService = channelService;
     }
@@ -23,7 +25,6 @@ public class ChannelController {
     @GetMapping()
     public List<Channel> getAllChannels() {
         return channelService.getAllChannels();
-
     }
 
     @GetMapping("/{id}")

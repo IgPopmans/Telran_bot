@@ -1,59 +1,43 @@
 package com.telran.telran_bot.model;
 
+import lombok.*;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
+/**
+ * Entity class Channel,which contains data received from the bot for usage in this program
+ *
+ * @author Igors Popmans
+ * @version 1.0
+ */
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "channel")
 public class Channel {
 
-
+    /**
+     * Unique identifier for the Channel,which generated automatically
+     */
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private long groupId;
+    /**
+     * Unique Channel id received from bot API
+     */
+    @NotNull
+    @Column()
+    private int channelId;
 
+    /**
+     * Channel name received from bot API
+     */
     @Column(name = "channel_name")
     private String name;
 
-    public Channel() {
-    }
-
-    public Channel(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public long getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(long groupId) {
-        this.groupId = groupId;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Channel{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }
