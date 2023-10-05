@@ -92,7 +92,7 @@ public class MessageServiceImpl implements MessageService {
     }
 
     /**
-     * This method return list all new messages from databse
+     * This method return list all new messages from database
      *
      * @return list new messages from database
      */
